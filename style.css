@@ -1,0 +1,378 @@
+/* =========================================
+   VARIABEL WARNA ROMA (Memudahkan Pengaturan)
+   ========================================= */
+:root {
+    --obsidian: #0a0a0a;     /* Hitam gelap marmer */
+    --imperial-red: #5C0000; /* Merah kaisar */
+    --gold: #D4AF37;         /* Emas murni */
+    --gold-glow: rgba(212, 175, 55, 0.4); 
+    --marble: #e8e6e1;       /* Putih tulang */
+}
+
+/* RESET & CUSTOM SCROLLBAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mengubah tampilan Scrollbar menjadi Emas */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--obsidian);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 5px;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background-color: var(--obsidian);
+    color: var(--marble);
+    line-height: 1.6;
+}
+
+h1, h2, h3, .logo, .roman-subtitle, .btn-gold, .btn-outline {
+    font-family: 'Cinzel', serif;
+}
+
+/* GARIS EMAS ATAS */
+.top-border {
+    height: 5px;
+    background: linear-gradient(90deg, var(--imperial-red), var(--gold), var(--imperial-red));
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+/* === NAVBAR === */
+nav {
+    position: absolute;
+    top: 5px;
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--gold-glow);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: var(--marble);
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-links a::after {
+    content: '✦'; /* Ornamen bintang emas */
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    color: var(--gold);
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: translateX(-50%) scale(1);
+}
+
+/* === HERO SECTION === */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1515 0%, var(--obsidian) 100%);
+    position: relative;
+}
+
+/* Tekstur pilar samar di background */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(255,255,255,0.02) 100px, rgba(255,255,255,0.02) 102px);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.roman-subtitle {
+    color: var(--imperial-red);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.gold-text {
+    color: var(--gold);
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 50px;
+}
+
+/* TOMBOL EMAS MENYALA */
+.btn-gold {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--gold);
+    padding: 15px 40px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border: 2px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px transparent;
+}
+
+.btn-gold:hover {
+    background-color: var(--gold);
+    color: var(--obsidian);
+    box-shadow: 0 0 20px var(--gold-glow);
+    transform: translateY(-3px);
+}
+
+/* === KARYA / PROJECTS SECTION === */
+.projects-section {
+    padding: 100px 50px;
+    text-align: center;
+    background-color: #111;
+}
+
+.section-title {
+    font-size: 3rem;
+    color: var(--marble);
+}
+
+.title-underline {
+    width: 100px;
+    height: 3px;
+    background-color: var(--imperial-red);
+    margin: 20px auto 60px auto;
+}
+
+.projects-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* KOTAK PROYEK INTERAKTIF */
+.project-card {
+    display: block;
+    background: var(--obsidian);
+    border: 1px solid #333;
+    width: 350px;
+    text-decoration: none;
+    text-align: left;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 15px var(--gold-glow);
+}
+
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: grayscale(30%); /* Gambar agak pucat di awal */
+}
+
+/* Efek rahasia saat di-hover */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(92, 0, 0, 0.9);
+    color: var(--gold);
+    padding: 10px 20px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border: 1px solid var(--gold);
+}
+
+.project-card:hover .card-img-wrapper img {
+    transform: scale(1.1); /* Gambar membesar */
+    filter: grayscale(0%); /* Warna kembali normal */
+}
+
+.project-card:hover .overlay-text {
+    opacity: 1; /* Teks muncul */
+}
+
+.project-info {
+    padding: 25px;
+    border-top: 2px solid #333;
+    transition: border-color 0.4s;
+}
+
+.project-card:hover .project-info {
+    border-top-color: var(--gold);
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    color: var(--marble);
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: #888;
+}
+
+/* === ABOUT SECTION === */
+.about-section {
+    padding: 100px 50px;
+    background: radial-gradient(circle at left, #1a1515 0%, var(--obsidian) 100%);
+    border-top: 1px solid #333;
+}
+
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.image-frame {
+    padding: 15px;
+    border: 2px solid var(--gold);
+    position: relative;
+}
+
+/* Ornamen sudut bingkai ala Romawi */
+.image-frame::before, .image-frame::after {
+    content: '';
+    position: absolute;
+    width: 20px; height: 20px;
+    border: 2px solid var(--gold);
+}
+.image-frame::before { top: -5px; left: -5px; border-right: none; border-bottom: none; }
+.image-frame::after { bottom: -5px; right: -5px; border-left: none; border-top: none; }
+
+.image-frame img {
+    width: 320px;
+    height: 350px;
+    object-fit: cover;
+    filter: sepia(30%); /* Efek foto klasik */
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.about-text .subtitle {
+    color: var(--imperial-red);
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.about-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn-outline {
+    border: 1px solid #555;
+    color: var(--marble);
+    padding: 12px 25px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #050505;
+    color: #666;
+    font-family: 'Cinzel', serif;
+    border-top: 1px solid #222;
+}
+
+/* RESPONSIVE UNTUK HP */
+@media screen and (max-width: 768px) {
+    nav { flex-direction: column; padding: 20px; gap: 15px; position: static; }
+    .hero h1 { font-size: 2.5rem; }
+    .about-container { flex-direction: column; text-align: center; }
+    .about-buttons { justify-content: center; flex-wrap: wrap; }
+    .project-card { width: 100%; }
+}
