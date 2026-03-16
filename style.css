@@ -5,11 +5,11 @@
 @media screen and (max-width: 768px) {
     
     /* 1. Atur Ulang Jarak & Padding Umum */
-    .hero, .projects-section, .about-section, .services-section {
+    .hero, .projects-section, .about-section {
         padding: 60px 20px !important; /* Kurangi padding agar tidak terlalu renggang */
     }
 
-    /* 2. Atur Ulang Navbar */
+    /* 2. Atur Ulang Navbar agar Rapi di HP (Meniru image_5.png) */
     nav {
         flex-direction: column; /* Susun logo dan menu ke bawah */
         position: static; /* Hilangkan posisi absolute agar tidak meluber */
@@ -27,15 +27,37 @@
         font-size: 1rem;
     }
 
-    /* 3. Atur Ulang Bagian Hero (Layar Pertama) */
+    /* 3. Atur Ulang Bagian Hero (Layar Pertama) & Perbaiki Latar Belakang */
     .hero {
         height: auto; /* Hilangkan height 100vh agar konten tidak tumpang tindih */
-        min-height: 80vh; /* Tetap beri tinggi minimal agar vas terlihat */
-        padding: 100px 20px 60px 20px; /* Jarak khusus untuk hero mobile */
+        min-height: 80vh; /* Tetap beri tinggi minimal agar latar belakang terlihat */
+        padding: 100px 20px 60px 20px; /* Jarak khusus untuk hero mobile, pindahkan teks ke bawah */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative; /* Penting untuk memposisikan koin di belakang */
     }
 
+    /* Sembunyikan Vas Kiri dan Kanan di Layar HP agar Tidak Menumpuk */
+    .hero::before, .hero::after {
+        display: none !important; /* Sembunyikan elemen vas pseudo-elements */
+    }
+
+    /* Posisikan Koin dengan Rapi di Bawah Navbar */
     .hero-content {
         max-width: 100%; /* Gunakan lebar penuh */
+        position: relative; /* Penting agar teks berada di atas koin */
+        z-index: 2; /* Teks berada di atas koin */
+    }
+
+    .hero-koin {
+        position: absolute;
+        top: 100px; /* Pindahkan koin ke bawah navbar */
+        width: 100%;
+        height: auto;
+        opacity: 0.1; /* Buat samar agar teks terlihat */
+        z-index: 1; /* Koin berada di belakang teks */
+        display: block !important; /* Pastikan koin ditampilkan */
     }
 
     .hero h1 {
@@ -85,30 +107,5 @@
         justify-content: center; /* Tombol ikut rata tengah */
         flex-wrap: wrap; /* Tombol bisa turun ke bawah */
         gap: 10px;
-    }
-
-    /* 6. Atur Ulang Bagian Pelayanan (What I Do) */
-    .services-header h2 {
-        font-size: 2.5rem;
-    }
-
-    .services-grid {
-        flex-direction: column; /* Kotak layanan berderet ke bawah */
-        gap: 40px;
-        padding-top: 30px;
-    }
-
-    .service-card {
-        border-right: none; /* Hilangkan garis batas vertikal */
-        padding-right: 0;
-        border-bottom: 1px solid #333; /* Ganti dengan garis pembatas horizontal */
-        padding-bottom: 30px;
-        text-align: center; /* Teks rata tengah */
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    .service-icon {
-        margin: 0 auto 20px auto; /* Memposisikan ikon ke tengah */
     }
 }
