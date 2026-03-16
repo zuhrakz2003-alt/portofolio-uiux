@@ -1,111 +1,100 @@
-/* ========================================================
-   RESPONSIVE DESIGN TOTAL UNTUK HP (Layar di bawah 768px)
-   ======================================================== */
+:root {
+    --royal-gold: #D4AF37;
+    --deep-red: #800000;
+    --parchment: #F5F2E7;
+    --ink-black: #2C2C2C;
+}
 
-@media screen and (max-width: 768px) {
-    
-    /* 1. Atur Ulang Jarak & Padding Umum */
-    .hero, .projects-section, .about-section {
-        padding: 60px 20px !important; /* Kurangi padding agar tidak terlalu renggang */
-    }
+body {
+    background-color: var(--parchment);
+    color: var(--ink-black);
+    font-family: 'Crimson Text', serif;
+    margin: 0;
+    line-height: 1.6;
+}
 
-    /* 2. Atur Ulang Navbar agar Rapi di HP (Meniru image_5.png) */
-    nav {
-        flex-direction: column; /* Susun logo dan menu ke bawah */
-        position: static; /* Hilangkan posisi absolute agar tidak meluber */
-        padding: 20px;
-        gap: 15px;
-    }
+/* Navbar Style */
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
 
-    .nav-links {
-        gap: 15px;
-        flex-wrap: wrap; /* Menu bisa turun ke bawah jika layar sangat kecil */
-        justify-content: center;
-    }
+.nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--deep-red);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
 
-    .nav-links a {
-        font-size: 1rem;
-    }
+.nav-links a:hover {
+    border-bottom: 1px solid var(--royal-gold);
+    color: var(--royal-gold);
+}
 
-    /* 3. Atur Ulang Bagian Hero (Layar Pertama) & Perbaiki Latar Belakang */
-    .hero {
-        height: auto; /* Hilangkan height 100vh agar konten tidak tumpang tindih */
-        min-height: 80vh; /* Tetap beri tinggi minimal agar latar belakang terlihat */
-        padding: 100px 20px 60px 20px; /* Jarak khusus untuk hero mobile, pindahkan teks ke bawah */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative; /* Penting untuk memposisikan koin di belakang */
-    }
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    border-bottom: 2px double var(--royal-gold);
+}
 
-    /* Sembunyikan Vas Kiri dan Kanan di Layar HP agar Tidak Menumpuk */
-    .hero::before, .hero::after {
-        display: none !important; /* Sembunyikan elemen vas pseudo-elements */
-    }
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--deep-red);
+    margin-bottom: 0.5rem;
+}
 
-    /* Posisikan Koin dengan Rapi di Bawah Navbar */
-    .hero-content {
-        max-width: 100%; /* Gunakan lebar penuh */
-        position: relative; /* Penting agar teks berada di atas koin */
-        z-index: 2; /* Teks berada di atas koin */
-    }
+.subtitle {
+    letter-spacing: 5px;
+    font-weight: bold;
+    color: var(--royal-gold);
+}
 
-    .hero-koin {
-        position: absolute;
-        top: 100px; /* Pindahkan koin ke bawah navbar */
-        width: 100%;
-        height: auto;
-        opacity: 0.1; /* Buat samar agar teks terlihat */
-        z-index: 1; /* Koin berada di belakang teks */
-        display: block !important; /* Pastikan koin ditampilkan */
-    }
+.profile-frame {
+    margin-top: 2rem;
+    display: inline-block;
+    padding: 10px;
+    border: 3px solid var(--royal-gold);
+    border-radius: 50%;
+}
 
-    .hero h1 {
-        font-size: 2.5rem; /* Perkecil judul agar tidak meluber keluar layar */
-        margin-bottom: 20px;
-    }
+.profile-frame img {
+    border-radius: 50%;
+    filter: sepia(0.3); /* Efek foto tua */
+}
 
-    .hero p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
+/* Project Cards */
+.projects {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
 
-    /* 4. Atur Ulang Bagian Karya (Work) */
-    .project-grid {
-        flex-direction: column; /* Kotak proyek berderet ke bawah */
-        gap: 20px;
-    }
+.project-card {
+    background: white;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
 
-    .project-card {
-        width: 100%; /* Kotak proyek memenuhi lebar layar HP */
-        max-width: 400px;
-        margin: 0 auto; /* Tengah-tengahkan */
-    }
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--royal-gold);
+}
 
-    /* 5. Atur Ulang Bagian Tentang Saya (About) */
-    .about-container {
-        flex-direction: column; /* Gambar di atas, teks di bawah */
-        text-align: center; /* Teks rata tengah */
-        gap: 30px;
-    }
-
-    .about-image img {
-        width: 250px;
-        height: 250px;
-        margin: 0 auto; /* Tengah-tengahkan gambar */
-    }
-
-    .about-text h2 {
-        font-size: 2.2rem;
-    }
-
-    .about-text p {
-        font-size: 1rem;
-    }
-
-    .about-buttons {
-        justify-content: center; /* Tombol ikut rata tengah */
-        flex-wrap: wrap; /* Tombol bisa turun ke bawah */
-        gap: 10px;
-    }
+.royal-btn {
+    background: var(--deep-red);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
 }
