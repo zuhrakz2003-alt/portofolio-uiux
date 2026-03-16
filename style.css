@@ -1,15 +1,17 @@
 /* =========================================
-   VARIABEL WARNA ROMA (Memudahkan Pengaturan)
+   PALET WARNA ROMAN PARCHMENT
    ========================================= */
 :root {
-    --obsidian: #0a0a0a;     /* Hitam gelap marmer */
-    --imperial-red: #5C0000; /* Merah kaisar */
-    --gold: #D4AF37;         /* Emas murni */
-    --gold-glow: rgba(212, 175, 55, 0.4); 
-    --marble: #e8e6e1;       /* Putih tulang */
+    --creme-bg: #fdfcf5;     /* Krem Parchment/Marble terang */
+    --creme-card: #ffffff;   /* Putih kartu */
+    --roman-red: #962828;    /* Merah marun klasik/Pompeian Red */
+    --text-dark: #3e2723;    /* Coklat tua sepia (untuk teks) */
+    --gold-accent: #c5a059;  /* Emas tua */
+    --gold-glow: rgba(197, 160, 89, 0.5);
+    --marble-shadow: rgba(62, 39, 35, 0.08);
 }
 
-/* RESET & CUSTOM SCROLLBAR */
+/* RESET & SCROLLBAR */
 * {
     margin: 0;
     padding: 0;
@@ -20,33 +22,35 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Mengubah tampilan Scrollbar menjadi Emas */
+/* Custom Scrollbar Merah & Emas */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
 }
 ::-webkit-scrollbar-track {
-    background: var(--obsidian);
+    background: var(--creme-bg);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--gold);
-    border-radius: 5px;
+    background: var(--roman-red);
+    border: 3px solid var(--creme-bg);
+    border-radius: 10px;
 }
 
 body {
-    font-family: 'Lora', serif;
-    background-color: var(--obsidian);
-    color: var(--marble);
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--creme-bg);
+    color: var(--text-dark);
+    line-height: 1.7;
 }
 
-h1, h2, h3, .logo, .roman-subtitle, .btn-gold, .btn-outline {
-    font-family: 'Cinzel', serif;
+/* Typography Headings Elegant Serif */
+h1, h2, h3, .logo, .roman-tagline, .proj-category, .btn-red, .btn-solid-red, .credo {
+    font-family: 'Playfair Display', serif;
 }
 
-/* GARIS EMAS ATAS */
-.top-border {
-    height: 5px;
-    background: linear-gradient(90deg, var(--imperial-red), var(--gold), var(--imperial-red));
+/* ORNAMEN ATAS */
+.top-ornament {
+    height: 8px;
+    background: linear-gradient(90deg, var(--roman-red), var(--gold-accent), var(--roman-red));
     width: 100%;
     position: fixed;
     top: 0;
@@ -56,9 +60,9 @@ h1, h2, h3, .logo, .roman-subtitle, .btn-gold, .btn-outline {
 /* === NAVBAR === */
 nav {
     position: absolute;
-    top: 5px;
+    top: 8px;
     width: 100%;
-    padding: 30px 50px;
+    padding: 30px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,11 +70,10 @@ nav {
 }
 
 .logo {
-    color: var(--gold);
-    font-size: 2rem;
+    color: var(--roman-red);
+    font-size: 2.2rem;
     font-weight: 700;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px var(--gold-glow);
+    letter-spacing: -1px;
 }
 
 .nav-links {
@@ -80,30 +83,32 @@ nav {
 }
 
 .nav-links a {
-    color: var(--marble);
+    color: var(--text-dark);
     text-decoration: none;
+    font-weight: 500;
     font-size: 1.1rem;
     position: relative;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--gold);
+    color: var(--roman-red);
 }
 
+/* Efek garis bawah emas saat di-hover */
 .nav-links a::after {
-    content: '✦'; /* Ornamen bintang emas */
+    content: '';
     position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
-    color: var(--gold);
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
+    width: 0;
+    height: 2px;
+    bottom: -8px;
+    left: 0;
+    background-color: var(--gold-accent);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover::after {
-    transform: translateX(-50%) scale(1);
+    width: 100%;
 }
 
 /* === HERO SECTION === */
@@ -113,88 +118,125 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle at center, #1a1515 0%, var(--obsidian) 100%);
+    background-color: var(--creme-bg);
     position: relative;
+    overflow: hidden;
 }
 
-/* Tekstur pilar samar di background */
+/* Pola latar belakang samar */
 .hero::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-image: repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(255,255,255,0.02) 100px, rgba(255,255,255,0.02) 102px);
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNjNWExNTkiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6bTIwIDIwaDIwdjIwSDIWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwaDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4=');
     pointer-events: none;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    padding: 0 20px;
+    max-width: 900px;
+    padding: 0 30px;
 }
 
-.roman-subtitle {
-    color: var(--imperial-red);
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-    font-weight: 700;
+.roman-tagline {
+    color: var(--gold-accent);
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    line-height: 1.2;
+    font-size: 5rem;
+    line-height: 1.1;
+    color: var(--roman-red);
     margin-bottom: 30px;
-}
-
-.gold-text {
-    color: var(--gold);
+    font-weight: 700;
 }
 
 .hero-desc {
-    font-size: 1.2rem;
-    color: #aaa;
-    margin-bottom: 50px;
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    max-width: 700px;
+    margin: 0 auto 50px auto;
 }
 
-/* TOMBOL EMAS MENYALA */
-.btn-gold {
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* TOMBOL MERAH SOLID */
+.btn-red {
     display: inline-block;
-    background-color: transparent;
-    color: var(--gold);
-    padding: 15px 40px;
+    background-color: var(--roman-red);
+    color: #ffffff;
+    padding: 18px 45px;
     text-decoration: none;
     font-size: 1.2rem;
-    border: 2px solid var(--gold);
-    position: relative;
-    overflow: hidden;
+    font-weight: 600;
+    border-radius: 5px;
     transition: all 0.4s ease;
-    box-shadow: 0 0 10px transparent;
+    border: 2px solid var(--roman-red);
 }
 
-.btn-gold:hover {
-    background-color: var(--gold);
-    color: var(--obsidian);
-    box-shadow: 0 0 20px var(--gold-glow);
+.btn-red:hover {
+    background-color: transparent;
+    color: var(--roman-red);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(150, 40, 40, 0.2);
+}
+
+/* TOMBOL OUTLINE EMAS */
+.btn-outline-gold {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--gold-accent);
+    padding: 18px 45px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+    border: 2px solid var(--gold-accent);
+}
+
+.btn-outline-gold:hover {
+    background-color: var(--gold-accent);
+    color: #ffffff;
     transform: translateY(-3px);
 }
 
 /* === KARYA / PROJECTS SECTION === */
 .projects-section {
-    padding: 100px 50px;
+    padding: 120px 60px;
     text-align: center;
-    background-color: #111;
+    background-color: #f7f6ed; /* Krem sedikit lebih gelap */
+}
+
+.section-header {
+    margin-bottom: 80px;
 }
 
 .section-title {
-    font-size: 3rem;
-    color: var(--marble);
+    font-size: 3.5rem;
+    color: var(--roman-red);
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin: 15px auto;
+    max-width: 600px;
 }
 
 .title-underline {
-    width: 100px;
+    width: 150px;
     height: 3px;
-    background-color: var(--imperial-red);
-    margin: 20px auto 60px auto;
+    background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+    margin: 25px auto 0 auto;
 }
 
 .projects-grid {
@@ -204,22 +246,25 @@ nav {
     flex-wrap: wrap;
 }
 
-/* KOTAK PROYEK INTERAKTIF */
+/* KOTAK PROYEK INTERAKTIF (KREM & MERAH) */
 .project-card {
     display: block;
-    background: var(--obsidian);
-    border: 1px solid #333;
-    width: 350px;
+    background: var(--creme-card);
+    border: 1px solid #eee;
+    width: 380px;
     text-decoration: none;
     text-align: left;
     transition: all 0.4s ease;
-    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--marble-shadow);
 }
 
+/* Efek kreatif saat kursor menyentuh kartu */
 .project-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--gold);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 15px var(--gold-glow);
+    transform: translateY(-12px);
+    border-color: var(--gold-accent);
+    box-shadow: 0 20px 40px rgba(62, 39, 35, 0.15), 0 0 10px var(--gold-glow);
 }
 
 .card-img-wrapper {
@@ -227,66 +272,77 @@ nav {
     width: 100%;
     height: 250px;
     overflow: hidden;
+    background-color: #eaeaea;
 }
 
 .card-img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease, filter 0.5s ease;
-    filter: grayscale(30%); /* Gambar agak pucat di awal */
+    transition: transform 0.6s ease;
 }
 
-/* Efek rahasia saat di-hover */
-.overlay-text {
+/* Efek Hamparan Figma saat di-hover */
+.figma-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(92, 0, 0, 0.9);
-    color: var(--gold);
-    padding: 10px 20px;
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(150, 40, 40, 0.9); /* Merah Kaisar Transparan */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
     transition: opacity 0.4s ease;
-    border: 1px solid var(--gold);
+    font-family: 'Playfair Display', serif;
+}
+
+.figma-icon {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--gold-accent);
+    border: 3px solid var(--gold-accent);
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    margin-bottom: 15px;
 }
 
 .project-card:hover .card-img-wrapper img {
     transform: scale(1.1); /* Gambar membesar */
-    filter: grayscale(0%); /* Warna kembali normal */
 }
 
-.project-card:hover .overlay-text {
-    opacity: 1; /* Teks muncul */
+.project-card:hover .figma-overlay {
+    opacity: 1; /* Overlay muncul */
 }
 
 .project-info {
-    padding: 25px;
-    border-top: 2px solid #333;
-    transition: border-color 0.4s;
+    padding: 30px;
+    border-top: 1px solid #eee;
 }
 
-.project-card:hover .project-info {
-    border-top-color: var(--gold);
+.proj-category {
+    color: var(--gold-accent);
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
 }
 
 .project-info h3 {
-    font-size: 1.5rem;
-    color: var(--marble);
-    margin-bottom: 10px;
+    font-size: 1.6rem;
+    color: var(--text-dark);
+    margin-bottom: 12px;
 }
 
 .project-info p {
-    color: #888;
+    color: #777;
+    font-size: 1rem;
 }
 
 /* === ABOUT SECTION === */
 .about-section {
-    padding: 100px 50px;
-    background: radial-gradient(circle at left, #1a1515 0%, var(--obsidian) 100%);
-    border-top: 1px solid #333;
+    padding: 120px 60px;
+    background-color: var(--creme-bg);
 }
 
 .about-container {
@@ -294,85 +350,125 @@ nav {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 70px;
+}
+
+.about-image {
+    flex-shrink: 0;
 }
 
 .image-frame {
-    padding: 15px;
-    border: 2px solid var(--gold);
     position: relative;
+    padding: 10px;
 }
-
-/* Ornamen sudut bingkai ala Romawi */
-.image-frame::before, .image-frame::after {
-    content: '';
-    position: absolute;
-    width: 20px; height: 20px;
-    border: 2px solid var(--gold);
-}
-.image-frame::before { top: -5px; left: -5px; border-right: none; border-bottom: none; }
-.image-frame::after { bottom: -5px; right: -5px; border-left: none; border-top: none; }
 
 .image-frame img {
     width: 320px;
-    height: 350px;
+    height: 380px;
     object-fit: cover;
-    filter: sepia(30%); /* Efek foto klasik */
+    border-radius: 5px;
+    border: 1px solid #eee;
+    box-shadow: 10px 10px 0 var(--roman-red); /* Shadow kotak merah marun */
+}
+
+/* Ornamen Sudut Emas */
+.frame-decorator {
+    position: absolute;
+    width: 30px; height: 30px;
+    border: 3px solid var(--gold-accent);
+}
+.frame-decorator.tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+.frame-decorator.br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.about-text {
+    flex: 1;
+}
+
+.credo {
+    font-size: 1.2rem;
+    color: var(--gold-accent);
+    font-style: italic;
+    margin-bottom: 15px;
 }
 
 .about-text h2 {
     font-size: 3rem;
-    color: var(--gold);
-    margin-bottom: 5px;
+    color: var(--roman-red);
+    margin-bottom: 10px;
 }
 
 .about-text .subtitle {
-    color: var(--imperial-red);
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-    letter-spacing: 2px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
 
 .about-text p {
     font-size: 1.1rem;
-    color: #ccc;
+    color: var(--text-dark);
     margin-bottom: 20px;
 }
 
 .about-buttons {
-    margin-top: 40px;
+    margin-top: 50px;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.btn-outline {
-    border: 1px solid #555;
-    color: var(--marble);
-    padding: 12px 25px;
+.btn-solid-red {
+    display: inline-block;
+    background-color: var(--roman-red);
+    color: #ffffff;
+    padding: 12px 30px;
     text-decoration: none;
-    transition: all 0.3s;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: 600;
 }
 
-.btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+.btn-solid-red:hover {
+    background-color: #7b1f1f;
+}
+
+.btn-outline-dark {
+    display: inline-block;
+    border: 1px solid #ccc;
+    color: var(--text-dark);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.btn-outline-dark:hover {
+    border-color: var(--roman-red);
+    color: var(--roman-red);
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 30px;
-    background-color: #050505;
-    color: #666;
-    font-family: 'Cinzel', serif;
-    border-top: 1px solid #222;
+    padding: 40px;
+    background-color: #1a100f; /* Coklat tua arang marmer */
+    color: var(--creme-bg);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
 }
 
 /* RESPONSIVE UNTUK HP */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     nav { flex-direction: column; padding: 20px; gap: 15px; position: static; }
-    .hero h1 { font-size: 2.5rem; }
-    .about-container { flex-direction: column; text-align: center; }
-    .about-buttons { justify-content: center; flex-wrap: wrap; }
-    .project-card { width: 100%; }
+    .nav-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .logo { font-size: 1.8rem; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero-btns { flex-direction: column; gap: 15px; }
+    .projects-grid { gap: 30px; padding: 0; }
+    .project-card { width: 100%; max-width: 400px;}
+    .about-container { flex-direction: column; text-align: center; gap: 40px; }
+    .about-buttons { justify-content: center; }
 }
