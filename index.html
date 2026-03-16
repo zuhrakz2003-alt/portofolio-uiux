@@ -3,68 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zurah Kusuma Zanjabil | UI/UX Designer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <title>Zurah Kusuma Zanjabil | Arsitek UI/UX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="top-border"></div>
+    <div class="top-ornament"></div>
 
     <nav>
-        <div class="logo">Zurah Kusuma Zanjabil</div>
+        <div class="logo">Zurah Kusuma</div>
         <ul class="nav-links">
             <li><a href="#home">Beranda</a></li>
-            <li><a href="#work">Karya</a></li>
+            <li><a href="#work">Prasasti Karya</a></li>
             <li><a href="#about">Tentang</a></li>
         </ul>
     </nav>
 
     <header id="home" class="hero">
         <div class="hero-content">
-            <p class="roman-subtitle">VENI • VIDI • VICI</p>
-            <h1>Merancang Antarmuka <br> <span class="gold-text">Membangun Kerajaan</span></h1>
-            <p class="hero-desc">Sebagai Mahasiswi Sistem Informasi di Universitas Gunadarma, saya merakit logika sistem dan keindahan visual menjadi sebuah pengalaman digital yang megah dan tak lekang oleh waktu.</p>
-            <a href="#work" class="btn-gold">Lihat Prasasti Karya</a>
+            <p class="roman-tagline">ARCHITECTURA DIGITALIS • ESTETIKA • FUNGSI</p>
+            <h1>Merancang Peradaban <br> Di Layar Kaca</h1>
+            <p class="hero-desc">Mahasiswi Sistem Informasi Universitas Gunadarma semester 6 yang mendedikasikan diri untuk merakit logika sistem menjadi antarmuka yang megah, intuitif, dan manusiawi layaknya pilar-pilar Roma kuno.</p>
+            <div class="hero-btns">
+                <a href="#work" class="btn-red">Jelajahi Karya</a>
+                <a href="#about" class="btn-outline-gold">Kenali Sang Arsitek</a>
+            </div>
         </div>
+        <div class="bg-vases"></div>
     </header>
 
     <section id="work" class="projects-section">
-        <h2 class="section-title">Karya & Prototipe</h2>
-        <div class="title-underline"></div>
+        <div class="section-header">
+            <h2 class="section-title">Galeri Prasasti</h2>
+            <p class="section-subtitle">Kompilasi prototipe digital yang dibangun dengan fondasi kegunaan dan keindahan.</p>
+            <div class="title-underline"></div>
+        </div>
         
         <div class="projects-grid">
             
             <a href="#" target="_blank" class="project-card">
                 <div class="card-img-wrapper">
                     <img src="images/athlo.png" alt="E-Commerce App">
-                    <div class="overlay-text">Buka di Figma</div>
+                    <div class="figma-overlay">
+                        <span class="figma-icon">F</span>
+                        <p>Buka Prototipe</p>
+                    </div>
                 </div>
                 <div class="project-info">
-                    <h3>E-Commerce App</h3>
-                    <p>Eksplorasi antarmuka untuk pengalaman belanja yang mulus.</p>
+                    <p class="proj-category">Mobile App</p>
+                    <h3>E-Commerce Marketplace</h3>
+                    <p>Optimasi alur belanja pengguna untuk konversi maksimal.</p>
                 </div>
             </a>
 
             <a href="#" target="_blank" class="project-card">
                 <div class="card-img-wrapper">
                     <img src="images/pusako.png" alt="Dashboard Mahasiswa">
-                    <div class="overlay-text">Buka di Figma</div>
+                    <div class="figma-overlay">
+                        <span class="figma-icon">F</span>
+                        <p>Buka Prototipe</p>
+                    </div>
                 </div>
                 <div class="project-info">
+                    <p class="proj-category">Web Portal</p>
                     <h3>Dashboard Akademik</h3>
-                    <p>Redesign sistem kampus agar lebih intuitif bagi mahasiswa.</p>
+                    <p>Redesign sistem kampus agar lebih *user-friendly* bagi mahasiswa.</p>
                 </div>
             </a>
 
             <a href="#" target="_blank" class="project-card">
                 <div class="card-img-wrapper">
-                    <img src="images/servease.png" alt="Aplikasi Finansial">
-                    <div class="overlay-text">Buka di Figma</div>
+                    <img src="images/servease.png" alt="Sistem Keuangan">
+                    <div class="figma-overlay">
+                        <span class="figma-icon">F</span>
+                        <p>Buka Prototipe</p>
+                    </div>
                 </div>
                 <div class="project-info">
-                    <h3>Aplikasi Finansial</h3>
-                    <p>Mempermudah pencatatan keuangan dengan visual yang bersih.</p>
+                    <p class="proj-category">Finance Tool</p>
+                    <h3>Manajer Keuangan Digital</h3>
+                    <p>Eksplorasi visualisasi data untuk pencatatan keuangan yang simpel.</p>
                 </div>
             </a>
 
@@ -76,25 +95,28 @@
             <div class="about-image">
                 <div class="image-frame">
                     <img src="images/profile.png" alt="Zurah Kusuma Zanjabil">
+                    <div class="frame-decorator tl"></div>
+                    <div class="frame-decorator br"></div>
                 </div>
             </div>
             <div class="about-text">
+                <p class="credo">"Saya membangun logika, saya menghias interaksi."</p>
                 <h2>Zurah Kusuma Zanjabil</h2>
-                <h3 class="subtitle">UI/UX Designer & Mahasiswa Sistem Informasi</h3>
-                <p>Saat ini saya menempuh semester 6 di Universitas Gunadarma. Saya senang memadukan pemahaman teknis dari perkuliahan dengan ketertarikan mendalam pada interaksi manusia dan komputer (HCI).</p>
-                <p>Saya percaya bahwa desain yang baik bukan sekadar estetika belaka, melainkan solusi yang terstruktur dengan kuat dan fungsional, layaknya pilar-pilar bangunan di Roma kuno.</p>
+                <h3 class="subtitle">Mahasiswi Sistem Informasi, Univ. Gunadarma (Semester 6)</h3>
+                <p>Menjelajahi dunia Sistem Informasi memberi saya pemahaman teknis tentang bagaimana sebuah sistem bekerja. Namun, kecintaan saya pada UI/UX lah yang mendorong saya untuk memastikan sistem tersebut dapat dinikmati oleh manusia.</p>
+                <p>Saya percaya desain UI/UX adalah jembatan antara kompleksitas kode dan kesederhanaan pengalaman pengguna. Fokus saya adalah menciptakan solusi digital yang efisien, kokoh, namun memiliki sentuhan seni yang menawan.</p>
                 
                 <div class="about-buttons">
-                    <a href="#" class="btn-outline">LinkedIn</a>
-                    <a href="#" class="btn-outline">Instagram</a>
-                    <a href="#" class="btn-gold">Unduh Gulungan (CV)</a>
+                    <a href="#" class="btn-solid-red">Gulungan (CV)</a>
+                    <a href="#" class="btn-outline-dark">LinkedIn</a>
+                    <a href="#" class="btn-outline-dark">Instagram</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Senatus Populusque Romanus © 2026 | Dirancang oleh Zurah Kusuma Zanjabil</p>
+        <p>Senatus Populusque Romanus | SPQR © 2026 | Zurah Kusuma Zanjabil</p>
     </footer>
 
 </body>
